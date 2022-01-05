@@ -1,27 +1,41 @@
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
+#include <climits>
 
 extern "C" {
 #include "library.h"
 }
 
-TEST(library, initial_value) {
-	ASSERT_EQ(get_answer(), 42);
+// Warning: This only works at the very start - shall be avoided without setup()/reset!
+TEST(library, initial) {
+	EXPECT_EQ(get_answer(), 42);
 }
 
-TEST(library, positive_value) {
+TEST(library, positive) {
+	set_answer(1);
+	EXPECT_EQ(get_answer(), 1);
+
 	set_answer(123);
-	ASSERT_EQ(get_answer(), 123);
+	EXPECT_EQ(get_answer(), 123);
+
+	set_answer(INT_MAX);
+	EXPECT_EQ(get_answer(), INT_MAX);
 }
 
-TEST(library, zero_value) {
+TEST(library, zero) {
 	set_answer(0);
-	ASSERT_EQ(get_answer(), 0);
+	EXPECT_EQ(get_answer(), 0);
 }
 
-TEST(library, negative_value) {
+TEST(library, negative) {
+	set_answer(-1);
+	EXPECT_EQ(get_answer(), -1);
+
 	set_answer(-123);
-	ASSERT_EQ(get_answer(), -123);
+	EXPECT_EQ(get_answer(), -123);
+
+	set_answer(INT_MIN);
+	EXPECT_EQ(get_answer(), INT_MIN);
 }
 
 int main(int argc, char **argv)

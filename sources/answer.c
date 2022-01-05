@@ -1,7 +1,9 @@
 
 #include "library.h"
 
-static int answer = 42;
+#define ANSWER_DEFAULT 42
+
+static int answer = ANSWER_DEFAULT;
 
 int get_answer()
 {

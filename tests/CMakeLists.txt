@@ -1,5 +1,8 @@
 # Tests
 
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 # requires 'apt install libgtest-dev libgmock-dev'
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
@@ -9,10 +12,14 @@ unset (CMAKE_CXX_CLANG_TIDY)
 
 # tests answer functions
 add_executable(clib_answer_tests answer.cpp)
-target_link_libraries (clib_answer_tests clib_template ${GTEST_BOTH_LIBRARIES})
+target_link_libraries (clib_answer_tests PRIVATE clib_template)
+target_link_libraries (clib_answer_tests PRIVATE ${GTEST_BOTH_LIBRARIES})
+target_link_libraries (clib_answer_tests PRIVATE Threads::Threads)
 add_test(NAME answer_tests COMMAND clib_answer_tests)
 
 # tests version functions
 add_executable(clib_version_tests version.cpp)
-target_link_libraries (clib_version_tests clib_template ${GTEST_BOTH_LIBRARIES})
+target_link_libraries (clib_version_tests PRIVATE clib_template)
+target_link_libraries (clib_version_tests PRIVATE ${GTEST_BOTH_LIBRARIES})
+target_link_libraries (clib_version_tests PRIVATE Threads::Threads)
 add_test(NAME version_tests COMMAND clib_version_tests)

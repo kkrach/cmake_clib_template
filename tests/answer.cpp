@@ -1,3 +1,14 @@
+/**
+ * @file answer.cpp
+ *
+ * @brief Unit tests for answers
+ *
+ * @author Karl Krach
+ *
+ * @copyright Copyright 2021 Karl Krach
+ * @license{This file is licensed under the MIT license.}
+ *
+ */
 
 #include <gtest/gtest.h>
 #include <climits>
@@ -8,34 +19,34 @@ extern "C" {
 
 // Warning: This only works at the very start - shall be avoided without setup()/reset!
 TEST(library, initial) {
-	EXPECT_EQ(get_answer(), 42);
+	EXPECT_EQ(clib_get_answer(), 42);
 }
 
 TEST(library, positive) {
-	set_answer(1);
-	EXPECT_EQ(get_answer(), 1);
+	clib_set_answer(1);
+	EXPECT_EQ(clib_get_answer(), 1);
 
-	set_answer(123);
-	EXPECT_EQ(get_answer(), 123);
+	clib_set_answer(123);
+	EXPECT_EQ(clib_get_answer(), 123);
 
-	set_answer(INT_MAX);
-	EXPECT_EQ(get_answer(), INT_MAX);
+	clib_set_answer(INT_MAX);
+	EXPECT_EQ(clib_get_answer(), INT_MAX);
 }
 
 TEST(library, zero) {
-	set_answer(0);
-	EXPECT_EQ(get_answer(), 0);
+	clib_set_answer(0);
+	EXPECT_EQ(clib_get_answer(), 0);
 }
 
 TEST(library, negative) {
-	set_answer(-1);
-	EXPECT_EQ(get_answer(), -1);
+	clib_set_answer(-1);
+	EXPECT_EQ(clib_get_answer(), -1);
 
-	set_answer(-123);
-	EXPECT_EQ(get_answer(), -123);
+	clib_set_answer(-123);
+	EXPECT_EQ(clib_get_answer(), -123);
 
-	set_answer(INT_MIN);
-	EXPECT_EQ(get_answer(), INT_MIN);
+	clib_set_answer(INT_MIN);
+	EXPECT_EQ(clib_get_answer(), INT_MIN);
 }
 
 int main(int argc, char **argv)

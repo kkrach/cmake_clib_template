@@ -1,10 +1,11 @@
 Checks:
-    '*,
+	'*,
+	-altera-unroll-loops,
 	-cppcoreguidelines-avoid-non-const-global-variables,
 	-llvmlibc-restrict-system-libc-headers,
-    -modernize-use-trailing-return-type,
-    -fuchsia-default-arguments-calls,
-    -fuchsia-default-arguments'
+	-modernize-use-trailing-return-type,
+	-fuchsia-default-arguments-calls,
+	-fuchsia-default-arguments'
 
 WarningsAsErrors:
-    '*'
+	'*'

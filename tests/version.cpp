@@ -1,3 +1,14 @@
+/**
+ * @file version.cpp
+ *
+ * @brief Unit tests for versioning
+ *
+ * @author Karl Krach
+ *
+ * @copyright Copyright 2021 Karl Krach
+ * @license{This file is licensed under the MIT license.}
+ *
+ */
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
@@ -15,51 +26,51 @@ static const char* PATH_REGEX = "^/.*";
 
 TEST(library, print_version) {
 	// smoke test
-	print_version();
+	clib_print_version();
 }
 
 TEST(library, project_name) {
-	EXPECT_STREQ(get_project_name(), "clib_template");
+	EXPECT_STREQ(clib_get_project_name(), "clib_template");
 }
 
 TEST(library, git_source_version)
 {
-	EXPECT_STRNE(get_git_source_version(), "");
+	EXPECT_STRNE(clib_get_git_source_version(), "");
 }
 
 TEST(library, git_source_date)
 {
-	EXPECT_THAT(get_git_source_date(), MatchesRegex(DATE_REGEX));
+	EXPECT_THAT(clib_get_git_source_date(), MatchesRegex(DATE_REGEX));
 }
 
 TEST(library, git_repository)
 {
-	EXPECT_THAT(get_git_repository(), MatchesRegex(GITREPO_REGEX));
+	EXPECT_THAT(clib_get_git_repository(), MatchesRegex(GITREPO_REGEX));
 }
 
 TEST(library, compile_host)
 {
-	EXPECT_STRNE(get_compile_host(), "");
+	EXPECT_STRNE(clib_get_compile_host(), "");
 }
 
 TEST(library, compile_date)
 {
-	EXPECT_THAT(get_compile_date(), MatchesRegex(DATE_REGEX));
+	EXPECT_THAT(clib_get_compile_date(), MatchesRegex(DATE_REGEX));
 }
 
 TEST(library, compile_user)
 {
-	EXPECT_STRNE(get_compile_user(), "");
+	EXPECT_STRNE(clib_get_compile_user(), "");
 }
 
 TEST(library, compile_source)
 {
-	EXPECT_THAT(get_compile_source(), MatchesRegex(PATH_REGEX));
+	EXPECT_THAT(clib_get_compile_source(), MatchesRegex(PATH_REGEX));
 }
 
 TEST(library, compile_dir)
 {
-	EXPECT_THAT(get_compile_dir(), MatchesRegex(PATH_REGEX));
+	EXPECT_THAT(clib_get_compile_dir(), MatchesRegex(PATH_REGEX));
 }
 
 int main(int argc, char **argv)

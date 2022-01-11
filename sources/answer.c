@@ -1,3 +1,14 @@
+/**
+ * @file answer.c
+ *
+ * @brief Template implementation for answers
+ *
+ * @author Karl Krach
+ *
+ * @copyright Copyright 2021 Karl Krach
+ * @license{This file is licensed under the MIT license.}
+ *
+ */
 
 #include "library.h"
 
@@ -5,12 +16,12 @@
 
 static int answer = ANSWER_DEFAULT;
 
-int get_answer()
+int clib_get_answer()
 {
 	return answer;
 }
 
-void set_answer(int value)
+void clib_set_answer(int value)
 {
 	answer = value;
 }

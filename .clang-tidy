@@ -1,5 +1,6 @@
 Checks:
 	'*,
+	-llvm-header-guard,
 	-altera-unroll-loops,
 	-cppcoreguidelines-avoid-non-const-global-variables,
 	-llvmlibc-restrict-system-libc-headers,
@@ -9,3 +10,6 @@ Checks:
 
 WarningsAsErrors:
 	'*'
+
+HeaderFilterRegex:
+	'.*'

@@ -9,7 +9,7 @@ extern "C" {
 using ::testing::MatchesRegex;
 
 static const char* DATE_REGEX = "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}.*";
-static const char* GITREPO_REGEX = "^git@.*";
+static const char* GITREPO_REGEX = "^(git@|https://).*";
 static const char* PATH_REGEX = "^/.*";
 
 
